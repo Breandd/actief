@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cursus index{% endblock %}
+
+{% block body %}
+    <h1>Cursus index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Min_participants</th>
+                <th>Max_participants</th>
+                <th>Start_date</th>
+                <th>End_date</th>
+                <th>Price</th>
+                <th>Cursus_type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cursus in cursuses %}
+            <tr>
+                <td>{{ cursus.id }}</td>
+                <td>{{ cursus.name }}</td>
+                <td>{{ cursus.description }}</td>
+                <td>{{ cursus.minParticipants }}</td>
+                <td>{{ cursus.maxParticipants }}</td>
+                <td>{{ cursus.startDate|date('d-m-Y') }}</td>
+                <td>{{ cursus.endDate|date('d-m-Y') }}</td>
+                <td>{{ cursus.price }}</td>
+                <td>{{ cursus.cursusType }}</td>
+                <td>
+                    <a class="btn btn-outline-success my-2 my-sm-0"  href="{{ path('cursus_show', {'id': cursus.id}) }}">show</a>
+                    <a class="btn btn-outline-success my-2 my-sm-0"  href="{{ path('cursus_edit', {'id': cursus.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success my-2 my-sm-0" href="{{ path('cursus_new') }}">Create new</a>
+{% endblock %}

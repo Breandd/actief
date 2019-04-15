@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cursus{% endblock %}
+
+{% block body %}
+    <h1>Cursus</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cursus.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ cursus.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ cursus.description }}</td>
+            </tr>
+            <tr>
+                <th>Min_participants</th>
+                <td>{{ cursus.minParticipants }}</td>
+            </tr>
+            <tr>
+                <th>Max_participants</th>
+                <td>{{ cursus.maxParticipants }}</td>
+            </tr>
+            <tr>
+                <th>Start_date</th>
+                <td>{{ cursus.startDate|date('d-m-Y') }}</td>
+            </tr>
+            <tr>
+                <th>End_date</th>
+                <td>{{ cursus.endDate|date('d-m-Y') }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ cursus.price }}</td>
+            </tr>
+            <tr>
+                <th>Cursus_type</th>
+                <td>{{ cursus.cursusType }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success my-2 my-sm-0"  href="{{ path('cursus_index') }}">back to list</a>
+
+    <a class="btn btn-outline-success my-2 my-sm-0"  href="{{ path('cursus_edit', {'id': cursus.id}) }}">edit</a>
+
+    {{ include('cursus/_delete_form.html.twig') }}
+{% endblock %}

@@ -19,10 +19,16 @@
                     <a class="nav-link" href="localhost:8000">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="{{ path('user_index') }}">User</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-link" href="{{ path('location_index') }}" tabindex="-1" aria-disabled="true">Location</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('cursus_index') }}" tabindex="-1" aria-disabled="true">Cursus</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('ticket_index') }}" tabindex="-1" aria-disabled="true">Ticket</a>
                 </li>
             </ul>
             {% if app.user %}

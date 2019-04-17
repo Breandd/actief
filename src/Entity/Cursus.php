@@ -197,6 +197,7 @@ class Cursus
         return $this;
     }
 
+
     public function removeTicket(Ticket $ticket): self
     {
         if ($this->tickets->contains($ticket)) {
@@ -233,4 +234,11 @@ class Cursus
 
         return $this;
     }
+
+    public function __toString()
+    {
+        //TODO: Implement __toString() method.
+        return ''. $this->getName();
+    }
+
 }
